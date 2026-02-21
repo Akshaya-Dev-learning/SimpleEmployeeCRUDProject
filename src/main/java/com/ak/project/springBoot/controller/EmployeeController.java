@@ -14,9 +14,9 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @GetMapping("/{name}")
-    public Employee getEmployeeByName(@PathVariable String name){
-        return employeeService.getEmployee(name);
+    @GetMapping("/{id}")
+    public Employee getEmployeeById(@PathVariable Long id){
+        return employeeService.getEmployee(id);
     }
 
     @PostMapping
@@ -29,9 +29,9 @@ public class EmployeeController {
         return employeeService.updateEmployee(employee);
     }
 
-    @DeleteMapping
-    public String deleteEmployee(@RequestBody Employee emp){
-        employeeService.deleteEmployee(emp);
+    @DeleteMapping("/{id}")
+    public String deleteEmployee(@PathVariable Long id){
+        employeeService.deleteEmployee(id);
         return "Employee deleted successfully";
     }
 }

@@ -21,19 +21,19 @@ public class EmployeeService {
 
 	}
 	
-	public Employee getEmployee(String name) {
-        return employeeRepo.findByName(name).orElseThrow(() -> new RuntimeException("There is some issue"));
+	public Employee getEmployee(Long id) {
+        return employeeRepo.findById(id).orElseThrow(() -> new RuntimeException("There is some issue"));
 	}
 	
 
 	  public String updateEmployee(Employee emp) {
           Employee employee = employeeRepo.findById(emp.getId()).orElse(new Employee());
-          employee.setDepartmentName("updated department");
-        return employeeRepo.save(employee).getName()+"data updated";
+          employee.setDepartmentName(emp.getDepartmentName());
+        return employeeRepo.save(employee).getName()+" data updated";
       }
 
-      public void deleteEmployee(Employee emp){
-        employeeRepo.delete(emp);
+      public void deleteEmployee(Long id){
+        employeeRepo.deleteById(id);
       }
 	
 }
