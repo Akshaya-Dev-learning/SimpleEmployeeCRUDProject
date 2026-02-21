@@ -13,4 +13,4 @@ Features:
 - Update Employee
 - Delete Employee
 
-  # user and password provided for db is a dummy value, added only for reference
+username and password provided for db are dummy values, added only for reference
